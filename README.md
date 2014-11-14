@@ -29,7 +29,7 @@ C:\python27\python.exe path\to\burp-browser.py
 ```
     * for linux
 ```sh
-sudo python path\to\burp-browser.py
+sudo python path/to/burp-browser.py
 ```
 
 ### Browsing / Searching
