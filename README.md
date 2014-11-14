@@ -22,16 +22,21 @@ Installation
 Usage
 -----
 ### Launching
-* Run `burp-browser.py` as a user that has the rights to read `burp` config files and certificates .
+  * Run `burp-browser.py` as a user that has the rights to read `burp` config files and certificates .
     * For windows you may need to `run as administrator` a command prompt :
 ```bat
 C:\python27\python.exe path\to\burp-browser.py
 ```
- 
+    * for linux
+```sh
+sudo python path\to\burp-browser.py
+```
+
 ### Browsing / Searching
   * By default `burp-browser` will list a tree with all backups avaiable for the current client using default `burp.conf` configuration.
-  * Seaching accepts a file or folder name, and recognises '*' and '?'
-      * Avoid using `*` or `*.*` , `burp-browser` will most likely barf if you have too may files in your backup.
+    * navigate the tree, it may be slow depending on your connection to th burp server
+  * Search is case insensitive, accepts a file or folder name, and recognises '*' and '?'
+    * Avoid using `*` or `*.*` , `burp-browser` will most likely barf if you have too may files in your backup.
 
 ### Burp config file / Client Name
   * You may use an alternative burp config by changing the `config file`
