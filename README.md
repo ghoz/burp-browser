@@ -23,14 +23,8 @@ Usage
 -----
 ### Launching
   * Run `burp-browser.py` as a user that has the rights to read `burp` config files and certificates .
-    * For windows you may need to `run as administrator` a command prompt :
-```bat
-C:\python27\python.exe path\to\burp-browser.py
-```
-    * for linux
-```sh
-sudo python path/to/burp-browser.py
-```
+    * For windows you may need to `run as administrator` a command prompt :  `C:\python27\python.exe path\to\burp-browser.py`
+    * for linux `sudo python path/to/burp-browser.py`
 
 ### Browsing / Searching
   * By default `burp-browser` will list a tree with all backups avaiable for the current client using default `burp.conf` configuration.
