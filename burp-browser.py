@@ -594,8 +594,6 @@ class BurpCommand (object):
         path=path.replace('\\', '/')
         strip=path.count('/')
         path=re.escape(path)
-        # C: => C. BURP-BUG regexp with ':'
-        path.replace(r'\:', '.') # FIXME  should search for x: at start only
         if path.endswith('/') : # folder restore
             path='^'+path
             strip=strip-1
