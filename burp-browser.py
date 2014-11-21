@@ -676,7 +676,9 @@ class BurpCommand (object):
         filters.append(self.filterUnknown)
         #pprint(args) # DEBUG
         #traceback.print_stack() # DEBUG
-        self.logger( '"' + '" "'.join([self.__burp] +args) + '"')
+        self.logger( '=' * 40)
+        self.logger( '<strong>Running :<br/>"' + '" "'.join([self.__burp] +args) + '"</strong>')
+        self.logger( '=' * 40)
         QtGui.qApp.processEvents()
         # BUG with utf8 add an encode / decode pass?
         cmd = subprocess.Popen([self.__burp] + args , stdout=PIPE)
