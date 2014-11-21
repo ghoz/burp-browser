@@ -166,7 +166,7 @@ class Ui_MainWindow(object):
             defaultConfigPath='/etc/burp/'
         lastConfigPath=self.configPath or defaultConfigPath
         conf=QtGui.QFileDialog.getOpenFileName(None,'Burp Client config file', lastConfigPath, r'Config Files (*.conf);;All (*.*)')
-        if not conf[0] :
+        if not conf :
             return
         self.configPath=os.path.dirname(conf[0]) # keep last path
         self.chooseconf.setToolTip(conf[0])
