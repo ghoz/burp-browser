@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.client.setPlaceholderText('Client Name')
         self.client.editingFinished.connect(self.setClientName)
         self.refresh = QtGui.QPushButton("Clear")
-        self.refresh.clicked.connect(self.fillBackups)
+        self.refresh.clicked.connect(lambda : self.fillBackups())
         #self.refresh.clicked.connect(lambda : self.fillFullTree (self.bklist.currentText()) ) # TEST Full listing
         self.test = QtGui.QPushButton("Test")
         self.test.clicked.connect(self.restore)
@@ -173,10 +173,10 @@ class Ui_MainWindow(object):
         self.bc.config=conf[0]
         self.fillBackups()
 
-    # Disable actionswhen running
+    # Disable actions when running
     # Yay decorators! SO 8218900
     def waiting(func) :
-        def run(self, *args) :
+        def run(self, *args,**kwargs) :
             if self.__isrunning : # already running
                 return
             self.__isrunning=True
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
             QtGui.qApp.setOverrideCursor(QtCore.Qt.WaitCursor)
             QtGui.qApp.processEvents()
 
-            func(self,*args)
+            func(self,*args,**kwargs)
             
             self.search.setEnabled(True)
             self.client.setEnabled(True)
