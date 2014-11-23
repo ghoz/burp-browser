@@ -680,12 +680,14 @@ class BurpCommand (object):
         self.logger( '<strong>Running :<br/>"' + '" "'.join([self.__burp] +args) + '"</strong>')
         self.logger( '=' * 40)
         QtGui.qApp.processEvents()
-        # disable cmd popup on windows SO 1813872
-        startupinfo = subprocess.STARTUPINFO()
         if platform.system() == 'Windows' :
+            # disable cmd popup on windows SO 1813872
+            startupinfo = subprocess.STARTUPINFO()
             startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-        # BUG with utf8 add an encode / decode pass?
-        cmd = subprocess.Popen([self.__burp] + args , stdout=PIPE, startupinfo=startupinfo)
+            # BUG with utf8 add an encode / decode pass?
+            cmd = subprocess.Popen([self.__burp] + args , stdout=PIPE, startupinfo=startupinfo)
+        else:
+            cmd = subprocess.Popen([self.__burp] + args , stdout=PIPE)
         for line in cmd.stdout :
             for matchFilter in filters :
                 if matchFilter(line.rstrip('\r\n')) :
